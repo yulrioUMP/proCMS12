@@ -1,0 +1,33 @@
+Ini di lokal untuk proses upload pertama kali
+1.inisialisasi git 
+git init
+
+2. cek status
+git status
+
+3.hapus isi dari .gitignore
+
+4. add semua file
+git add --all
+
+5. commit semua file
+git commit -a -m "All"
+
+
+
+
+Persiapan di git hub
+1. Create a new repository
+
+2. Membuat token
+Settings->Developer settings->Personal access token
+
+3. New personal access token
+centang repo
+
+git remote add origin https://github.com/yulrioUMP/proCMS12.git
+git branch -M main
+git push -u origin main
+
+
+
