@@ -10,7 +10,7 @@
                 <th scope="col">Category</th>
                 <th scope="col">Created At</th>
                 <th scope="col">Update At</th>
-                <th scope="col">Add</th>
+                <th scope="col"><a href="categories/create">Add</th>
             </tr>
         </thead>
         <tbody>

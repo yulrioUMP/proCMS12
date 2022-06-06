@@ -14,25 +14,17 @@ class CategoryController extends Controller
         return view('category.categoryindex', ['categories' => $categories]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('category.categorycreate');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $category = new Category();
+        $category->category = $request->category;
+        $category->save();
+        return redirect('/categories');
     }
 
     /**
