@@ -1,0 +1,17 @@
+1. Buat file migration
+php artisan make:migration create_[nama_tabel]_table
+
+2. Buat migrasi 
+php artisan migrate
+
+3. Model
+php artisan make:model Category  
+
+4. Controller
+php artisan make:controller CategoryController --resource
+
+5.Web Route
+Route::resource('categories', App\Http\Controllers\CategoryController::class);
+
+6. View
+categorydata.blade.php
