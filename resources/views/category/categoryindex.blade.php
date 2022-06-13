@@ -23,7 +23,11 @@
                 <td>{{$category->category}}</td>
                 <td>{{$category->created_at}}</td>
                 <td>{{$category->updated_at}}</td>
-                <td>edit | del</td>
+                <td>
+                    <a href="/categories/{{$category->id}}">edit </a>
+                    |
+                    <a href="/categories/{{$category->id}}/edit">del</a>
+                </td>
             </tr>
             @endforeach
         </tbody>
