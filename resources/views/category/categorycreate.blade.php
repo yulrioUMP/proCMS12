@@ -12,7 +12,9 @@
         <div class="mb-3 row">
             <div class="col-auto">
                 @csrf
-                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                <button type="submit" class="btn btn-primary mb-3">
+                    <i class="bi bi-plus-circle"></i> Submit
+                </button>
             </div>
         </div>
     </form>

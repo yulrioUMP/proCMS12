@@ -13,7 +13,9 @@
             <div class="col-auto">
                 @csrf
                 @method('PUT')
-                <button type="submit" class="btn btn-primary mb-3">Update</button>
+                <button type="submit" class="btn btn-primary mb-3">
+                    <i class="bi bi-pencil"></i> Update
+                </button>
             </div>
         </div>
     </form>

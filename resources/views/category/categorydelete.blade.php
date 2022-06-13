@@ -13,7 +13,9 @@
             <div class="col-auto">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-primary mb-3">Delete</button>
+                <button type="submit" class="btn btn-primary mb-3">
+                    <i class="bi bi-trash"></i> Delete
+                </button>
             </div>
         </div>
     </form>
