@@ -28,6 +28,19 @@ class ContentController extends Controller
 
     public function store(Request $request)
     {
+        $validated = $request->validate(
+            [
+                'category' => 'required',
+                'title' => 'required|min:10',
+                'content' => 'required'
+            ],
+            [
+                'title.required' => "Data wajib diisi",
+                'title.min' => "Judul minimal 10 karakater"
+
+            ]
+        );
+
         $content = new Content();
         $content->cat_id = $request->category;
         $content->title = $request->title;
@@ -64,6 +77,19 @@ class ContentController extends Controller
 
     public function update(Request $request, $id)
     {
+        $validated = $request->validate(
+            [
+                'category' => 'required',
+                'title' => 'required|min:10',
+                'content' => 'required'
+            ],
+            [
+                'title.required' => "Data wajib diisi",
+                'title.min' => "Judul minimal 10 karakater"
+
+            ]
+        );
+
         $content = Content::find($id);
         $content->cat_id = $request->category;
         $content->title = $request->title;

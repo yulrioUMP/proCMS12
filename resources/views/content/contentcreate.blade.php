@@ -8,21 +8,40 @@
             <select name="category" class="form-control">
                 @foreach ($categories as $category)
                 <option value="{{ $category->id }}">{{$category->category}}</option>
-
                 @endforeach
             </select>
+            @error ("category")
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+            @enderror
         </div>
         <div class="mb-3">
             <label class="form-label">Title</label>
-            <input type="text" class="form-control" placeholder="title" name="title">
+            <input type="text" class="form-control" placeholder="title" name="title" value="{{ old('title') }}">
+            @error ("title")
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+            @enderror
         </div>
         <div class="mb-3">
             <label class="form-label">Content</label>
-            <input type="text" class="form-control" placeholder="content" name="content">
+            <input type="text" class="form-control" placeholder="content" name="content" value="{{old('content')}}">
+            @error ("content")
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+            @enderror
         </div>
         <div class="mb-3">
             <label class="form-label">Photo</label>
             <input type="file" class="form-control" placeholder="photo" name="photo">
+            @error ("photo")
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+            @enderror
         </div>
         <div class="mb-3">
             @csrf

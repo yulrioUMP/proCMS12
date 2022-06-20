@@ -12,14 +12,29 @@
                 </option>
                 @endforeach
             </select>
+            @error ("category")
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+            @enderror
         </div>
         <div class="mb-3">
             <label class="form-label">Title</label>
             <input type="text" class="form-control" placeholder="title" name="title" value="{{$content->title}}">
+            @error ("title")
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+            @enderror
         </div>
         <div class="mb-3">
             <label class="form-label">Content</label>
             <input type="text" class="form-control" placeholder="content" name="content" value="{{$content->content}}">
+            @error ("content")
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+            @enderror
         </div>
         <div class="mb-3">
             <label class="form-label">Photo</label>
@@ -28,6 +43,11 @@
                 <br>
                 <img src="{{url('uploads')}}/{{$content->photo}}" width="120px">
             </div>
+            @error ("photo")
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+            @enderror
         </div>
         <div class="mb-3">
             @csrf
