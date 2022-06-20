@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Content;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 
@@ -21,7 +22,8 @@ class ContentController extends Controller
 
     public function create()
     {
-        return view("content.contentcreate");
+        $categories = Category::all();
+        return view("content.contentcreate", ['categories' => $categories]);
     }
 
     public function store(Request $request)
@@ -56,7 +58,8 @@ class ContentController extends Controller
     public function edit($id)
     {
         $content = Content::find($id);
-        return view("content.contentedit", ['content' => $content]);
+        $categories = Category::all();
+        return view("content.contentedit", ['content' => $content, 'categories' => $categories]);
     }
 
     public function update(Request $request, $id)

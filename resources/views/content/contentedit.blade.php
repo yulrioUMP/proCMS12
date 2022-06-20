@@ -5,7 +5,13 @@
     <form action="/contents/{{$content->id}}" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label class="form-label">Category</label>
-            <input type="text" class="form-control" placeholder="category" name="category" value="{{$content->cat_id}}">
+            <select name="category" class="form-control">
+                @foreach ($categories as $category)
+                <option value="{{$category->id}}" {{ $category->id == $content->cat_id ? "selected" : ""}}>
+                    {{$category->category}}
+                </option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <label class="form-label">Title</label>
