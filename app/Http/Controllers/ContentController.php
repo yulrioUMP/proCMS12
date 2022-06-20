@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Content;
+use Illuminate\Http\Request;
+
 
 class ContentController extends Controller
 {
@@ -15,72 +16,83 @@ class ContentController extends Controller
     public function index()
     {
         $contents = Content::all();
-        return view('content.contentindex', ['contents' => $contents]);
+        return view("content.contentindex", ['contents' => $contents]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view("content.contentcreate");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $content = new Content();
+        $content->cat_id = $request->category;
+        $content->title = $request->title;
+        $content->content = $request->content;
+
+        if ($request->file('photo') != null) {
+            $file = $request->file('photo');
+
+            $filenameWithExt = $request->file('photo')->getClientOriginalName();
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            $filenameSave = time() . '.' . $extension;
+
+            $destinationPath = 'uploads';
+            $file->move($destinationPath, $filenameSave);
+        }
+
+        $content->photo = $filenameSave;
+        $content->save();
+        return redirect('/contents');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $content = Content::find($id);
+        return view("content.contentshow", ['content' => $content]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $content = Content::find($id);
+        return view("content.contentedit", ['content' => $content]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $content = Content::find($id);
+        $content->cat_id = $request->category;
+        $content->title = $request->title;
+        $content->content = $request->content;
+
+        if ($request->file('photo') != null) {
+            $file = $request->file('photo');
+
+            $filenameWithExt = $request->file('photo')->getClientOriginalName();
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            $filenameSave = time() . '.' . $extension;
+
+            $destinationPath = 'uploads';
+            $file->move($destinationPath, $filenameSave);
+
+            $photo_old = $destinationPath . '/' . $request->photo_old;
+            if (file_exists(public_path($photo_old))) {
+                unlink(public_path($photo_old));
+            }
+        } else {
+            $filenameSave = $content->photo;
+        }
+
+        $content->photo = $filenameSave;
+        $content->save();
+        return redirect('/contents');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $content = Content::find($id);
+        $content->delete();
+        return redirect('/contents');
     }
 }
