@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+    <h1>{{ $category->category }}</h1>
+    <hr>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         @foreach ($contents as $content )
         <div class="col">

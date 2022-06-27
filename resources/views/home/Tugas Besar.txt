@@ -1,0 +1,21 @@
+Tugas Besar 
+
+Speksifikasi Software
+1. Laravel 9
+2. Database : SQLite
+3. PHP 8 
+
+Speksifikasi Fitur Aplikasi
+1. Halaman Login (Memiliki role)
+2. Minimal terdiri 2 table (diluar tabel auth)
+3. Ada upload file (gambar/dokumen)
+
+Laporan yang dikumpulkan
+1. Presentasi (.pdf)
+2. Kode program lengkap
+
+Laporan diletakkan di github
+Jadi yang dikirim ke form pengumpulan hanya link github
+
+Batas waktu pengumpulan
+5 Agustus 2022
