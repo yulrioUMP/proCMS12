@@ -39,6 +39,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
+                            <a class="nav-link" href="/"><i class="bi bi-house-door"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/categories"><i class="bi bi-journal-text"></i> Categories</a>
                         </li>
                         <li class="nav-item">

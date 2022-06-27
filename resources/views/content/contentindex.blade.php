@@ -20,7 +20,7 @@
                 <td scope="row">{{ $no++ }}</td>
                 <td>{{$content->get_category['category']}}</td>
                 <td>{{$content['title']}}</td>
-                <td>{{$content['content']}}</td>
+                <td>{{ substr($content->content,0,150)."..." }}</td>
                 <td>
                     <img src="uploads/{{$content['photo']}}" width="120px">
                 </td>
