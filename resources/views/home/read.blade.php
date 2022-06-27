@@ -8,6 +8,9 @@
             <h1 class="card-title">{{ $content->title }}</h1>
             <p class="card-text">{!! nl2br($content->content) !!}</p>
         </div>
+        <div class="card-footer">
+            <small class="text-muted">Last updated: {{ $content->updated_at }}</small>
+        </div>
     </div>
 </div>
 @endsection

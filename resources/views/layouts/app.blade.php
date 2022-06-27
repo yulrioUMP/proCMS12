@@ -42,11 +42,25 @@
                             <a class="nav-link" href="/"><i class="bi bi-house-door"></i> Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/category/2"><i class="bi bi-graph-up-arrow"></i> Data Science</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/category/3"><i class="bi bi-bucket"></i> Culinary</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/category/4"><i class="bi bi-clipboard-pulse"></i> Health</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/category/6"><i class="bi bi-mortarboard"></i> Education</a>
+                        </li>
+                        @auth
+                        <li class="nav-item">
                             <a class="nav-link" href="/categories"><i class="bi bi-journal-text"></i> Categories</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/contents"><i class="bi bi-file-earmark"></i></i> Contents</a>
                         </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->

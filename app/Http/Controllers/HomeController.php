@@ -19,4 +19,10 @@ class HomeController extends Controller
         $content = Content::find($id);
         return view('home.read', ["content" => $content]);
     }
+
+    public function category($id)
+    {
+        $contents = Content::where('cat_id', $id)->get();
+        return view('home.category', ["contents" => $contents]);
+    }
 }
